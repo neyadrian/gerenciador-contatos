@@ -122,4 +122,39 @@ public class Agenda {
         System.out.println("Contato atualizado com sucesso!");
         return true;
     }
+
+    public boolean removerContato(String nome) {
+        for (int i = 0; i < contatos.size(); i++) {
+            if (contatos.get(i).getNome().equalsIgnoreCase(nome)) {
+                contatos.remove(i);
+                System.out.println("Contato removido com sucesso!");
+                return true;
+            }
+        }
+
+        System.out.println("Contato não encontrado!");
+        return false;
+    }
+
+    public void salvarContatos() {
+        try {
+            persistencia.salvar(contatos);
+            System.out.println("Contatos salvos com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro ao salvar contatos: " + e.getMessage());
+        }
+    }
+
+    public void carregarContatos() {
+        try {
+            contatos = persistencia.carregar();
+            System.out.println("Contatos carregados com sucesso!");
+        } catch (Exception e) {
+            System.out.println("Erro ao carregar contatos: " + e.getMessage());
+        }
+    }
+
+    public List<Contato> getContatos() {
+        return new ArrayList<>(contatos);
+    }
 }
