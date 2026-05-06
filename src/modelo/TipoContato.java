@@ -1,5 +1,16 @@
 package modelo;
 
 public enum TipoContato {
-    CLIENTE, FORNECEDOR;
+    CLIENTE("Cliente"),
+    FORNECEDOR("Fornecedor");
+
+    private final String descricao;
+
+    TipoContato(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getDescricao() {
+        return descricao;
+    }
 }
