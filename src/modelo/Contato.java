@@ -1,7 +1,6 @@
 package modelo;
 
 public abstract class Contato {
-
     private String nome;
     private String email;
 
@@ -9,7 +8,6 @@ public abstract class Contato {
         this.nome = nome;
         this.email = email;
     }
-
     public String getNome() {
         return nome;
     }
@@ -27,4 +25,13 @@ public abstract class Contato {
     }
 
     public abstract String getTipo();
+
+    @Override
+    public String toString() {
+        return "Contato{" +
+                "nome='" + nome + '\'' +
+                ", email='" + email + '\'' +
+                ", tipo=" + getTipo() +
+                '}';
+    }
 }
